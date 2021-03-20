@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <head>
+    {% block head %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Quicksand" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <title>Flask Training</title>
+    <style>
+
+
+    </style>
+
+</head>
+    {% endblock %}
+  </head>
+  <body>
+    <div id="content">{% block content %}{% endblock %}</div>
+    <div id="footer">
+      {% block footer %}
+<footer class="footer">
+    <div class="content has-text-centered">
+        <p>
+            <strong>Copyright</strong> by <a href="https://www.aegis.edu.in">Aegis</a>. The source code is licensed
+            <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+            is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+        </p>
+    </div>
+</footer>
+
+
+      {% endblock %}
+    </div>
+  </body>
+</html>
+
