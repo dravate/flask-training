@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block header %}
+  <h1>{% block title %}Posts{% endblock %}</h1>
+  {% if g.user %}
+    <a class="action" href="{{ url_for('blog.create') }}">New</a>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+<section class="hero is-primary"> 
+<br>
+<br>
+     <div class="container is-fluid">
+
+{% if g.user %}
+<div class="buttons">
+  <button class="button is-danger is-rounded"><a href="{{ url_for('blog.create') }}"> + New Posting </a></button> 
+</div>
+{% endif %}
+
+
+	{% for post in posts %} 
+		<div class="container is-fluid"> 
+			<div class="card">
+				<header class="card-header">
+					<p class="card-header-title">
+						{{ post['title'] }} 
+					</p>
+				</header>
+				<div class="card-content">
+					<div class="media">
+						<div class="media-left">
+							<figure class="image is-48x48">
+								<img src="/static/images/author.png" alt="Placeholder image">
+							</figure>
+						</div>
+					<div class="media-content">
+						<p>by {{ post['username'] }} </p>
+						<p>@{{ post['username'] }}</p>
+					</div>
+				</div> 
+				<div class="content">
+					{{ post['body'] }}
+					<br>
+					<br>
+					created on: 
+					<time datetime="2016-1-1">{{ post['created'].strftime('%Y-%m-%d') }}</time>
+				</div> 
+			</div> 
+			<footer class="card-footer">
+				{% if g.user['id'] == post['author_id'] %}
+					<a href="{{ url_for('blog.update', id=post['id']) }}" class="card-footer-item">Edit</a>
+				{% endif %}
+			</footer> 
+		</div> 
+		{% if not loop.last %}
+		<hr>
+		{% endif %}
+	</div>
+	{% endfor %}
+<br>
+</section>
+
+<br>
+{% endblock %}
