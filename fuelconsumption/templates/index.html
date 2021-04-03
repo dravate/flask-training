@@ -1,0 +1,53 @@
+{%extends "base.html" %} 
+{%block content%} 
+
+<section class="hero">
+    <div class="hero-body">
+        <p class="title">
+            CO2 Emission Prediction System  
+        </p>
+    </div>
+    <hr>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-content">
+                <div class="media">
+                    <div class="media-content">
+                        <p class="title is-4">Enter following Values to predic CO2 emission from the Veheicle </p>
+                    </div>
+                </div>
+                <div class="content">
+    <div class="container my-5 mx-5 px-5">
+        <form action="{{ url_for('predict')}}" method="post">
+            <div class="field">
+                <label for="enginesize" class="label is-size-4 has-text-weight-light">
+                    Engine Size:
+                </label>
+                <input type="text" name="enginesize" id="enginesize" class="input" autofocus>
+            </div>
+            <div class="field">
+                <label for="cylinders" class="label is-size-4 has-text-weight-light">
+                   Cylinders:
+                </label>
+                <input type="text" name="cylinders" id="cylinders" class="input" autofocus>
+            </div>
+            <div class="field">
+                <label for="fuel" class="label is-size-4 has-text-weight-light">
+                   Fuel:
+                </label>
+                <input type="text" name="fuel" id="fuel" class="input" autofocus>
+            </div>
+            <button type="submit" class="button is-success is-size-5">Predict</button>
+        </form>
+    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+{% endblock %}
+
