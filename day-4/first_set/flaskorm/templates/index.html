@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero is-primary">
+	<div class="hero-body">
+		 <div class="container is-fluid">
+			 <div class="card">
+				 <header class="card-header">
+					 <p class="card-header-title">
+						 Flask SQLAlchemy Demonstration
+					 </p>
+				 </header>
+				 {% for user in users %}
+					 <div class="card-content"> 
+
+							 <ul id="user.username">
+									 <li>
+										 <span class="field-name">User:</span>
+										 <span class="field-value">{{ user.username }}</span>
+									 </li>
+									 <li>
+										 <span class="field-name">Email:</span>
+										 <span class="field-value">{{ user.email }}</span>
+									 </li>
+									 <li>
+										 <span class="field-name">Created:</span>
+										 <span class="field-value">{{ user.created }}</span>
+									 </li>
+									 <li>
+										 <span class="field-name">Bio:</span>
+										 <span class="field-value">{{ user.bio }}</span>
+									 </li>
+									 <li>
+										 <span class="field-name">Admin:</span>
+										 <span class="field-value">{{ user.admin }}</span>
+									 </li>
+							 </ul>
+							<hr> 
+					 </div>
+				 {% endfor %}
+			 </div> 
+		</div>
+	</div>
+</section>
+
+{% endblock %}
